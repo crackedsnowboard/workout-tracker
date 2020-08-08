@@ -55,7 +55,16 @@ app.post("api/workouts/exercise", (req, res) => {
   Workout.createCollection({})
 })
 
-
+app.put("api/workouts/:id", (req, res) => {
+  Workout.findOneAndUpdate(req.param.id, { $set: {workout: req.body}})
+  .then(dbWorkout => {
+    console.log("specifid id" + dbWorkout);
+    res.json(dbWorkout);
+  })
+  .catch(err => {
+    res.json( err);
+  });
+})
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
