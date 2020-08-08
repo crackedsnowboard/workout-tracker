@@ -41,7 +41,7 @@ app.get("/stats", function (req, res) {
 
 app.post("/api/workouts", (req, res) => {
   console.log("testing");
-  db.Workout.create({})
+  Workout.create({})
     .then(dbWorkout => {
       console.log("say something" + dbWorkout);
       res.json(dbWorkout);
@@ -52,7 +52,7 @@ app.post("/api/workouts", (req, res) => {
 })
 
 app.post("api/workouts/exercise", (req, res) => {
-  db.Workout.createCollection({})
+  Workout.createCollection({})
 })
 
 
